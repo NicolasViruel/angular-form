@@ -1,28 +1,72 @@
-<!-- novalidate es para que HTML no me autovalide el formulario -->
-<form [formGroup]="form" novalidate (ngSubmit)="save($event)">
-    <p>
-      Name: <br/>
-      <input type="text" formControlName="name">
-    </p>
-    <p>
-      Fecha: <br/>
-      <input type="date" formControlName="date">
-    </p>
-    <button (click)="doSomething()">Action</button> 
-    <p>
-      Email: <br/>
-      <input type="email" formControlName="email">
-    </p>
-    <div *ngIf="emailField?.errors && emailField?.touched">
-      <!-- es un campo requerido -->
-      <p *ngIf="emailField?.hasError('required')">
-          Es un campo requerido
-      </p>
-      <!-- compruebo que es un email -->
-      <p *ngIf="emailField?.hasError('email')">
-        No es un email
-    </p>
+<section class="hero is-primary is bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Crear Producto
+      </h1>
+      <h2 class="subtitle">
+        Forms en Angular
+      </h2>
+    </div>
   </div>
+</section>
+<div class="container">
+  <section class="section">
+    <!-- novalidate es para que HTML no me autovalide el formulario -->
+    <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" formControlName="name"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+      <p class="help is-success">Nombre de usuario habilitado</p>
+    </div>
+     <div class="field">
+      <label class="label">Fecha</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="date" formControlName="date"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa-calendar-alt"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+      <p class="help is-success">Fecha correcta</p>
+     </div>
+    <button class="button is-primary" type="button" (click)="doSomething()">
+      Accion
+    </button> 
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-danger" type="email" formControlName="email"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa-at"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+      <p class="help is-success">Mensaje enviado correctamente</p>
+      <p class="help is-danger">Error al enviar el mensaje</p>
+      <!-- <div *ngIf="emailField?.errors && emailField?.touched">
+        es un campo requerido
+        <p *ngIf="emailField?.hasError('required')">
+            Es un campo requerido
+        </p>
+        compruebo que es un email
+        <p *ngIf="emailField?.hasError('email')">
+          No es un email
+      </p>
+    </div> -->
+    </div>  
     <p>
       Texto largo: <br/>
       <textarea cols="30" rows="10" formControlName="text"></textarea>
@@ -54,5 +98,11 @@
       <input type="radio" name="gender" formControlName="gender" value="other"> Other
     </p>
     <button type="submit">Guardar</button>
-  </form>
+    </form>
+  </section>
+</div>
+
+
+
+
   
